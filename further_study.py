@@ -54,7 +54,7 @@ def custom_append(input_list, value):
     """
     new_list = [value]
     input_list += new_list
-    pass
+    
 
 
 def custom_extend(input_list, second_list):
@@ -71,7 +71,7 @@ def custom_extend(input_list, second_list):
 
     """
     input_list += second_list
-    pass
+    
 
 
 def custom_insert(input_list, index, value):
@@ -89,7 +89,7 @@ def custom_insert(input_list, index, value):
     """
 
     input_list[index:index] = [value]
-    pass
+    
 
 
 def custom_remove(input_list, value):
@@ -105,14 +105,15 @@ def custom_remove(input_list, value):
     True
 
     """
-    count = -1
+    count = 0
     for item in input_list:
-        count += 1
         if item == value:
             break
+        else:
+            count += 1    
 
     del input_list[count]
-    pass
+    
 
 
 def custom_pop(input_list):
@@ -188,8 +189,8 @@ def custom_reverse(input_list):
          count += 1
 
     # new_input_list = []
-    # for i in range(count, 0, -1):
-    #     new_input_list += [input_list[i-1]]
+    # for i in range(count, -1, -1):
+    #     new_input_list += [input_list[i]]
     # input_list = new_input_list
 
     
@@ -203,7 +204,7 @@ def custom_reverse(input_list):
         custom_append(input_list, input_list[i])
     del input_list[:count+1]
 
-    pass
+
 
 
 
@@ -222,15 +223,12 @@ def custom_contains(input_list, value):
     True
 
     """
-    count = 0
+    
     for item in input_list:
         if value == item:
-            count += 1
+            return True
 
-    if count > 0:
-        return True
-    else:
-        return False
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -258,15 +256,11 @@ def custom_equality(some_list, another_list):
     if length1 != length2:
         return False
 
-    count = 0
     for i in range(length1):
         if some_list[i] != another_list[i]:
-            count += 1
+            return False
 
-    if count > 0:
-       return False
-    else:
-        return True
+    return True
 
 
 ##############################################################################
